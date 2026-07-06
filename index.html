@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio Template Archive | Malek Abdelrahman — 25 Styles</title>
+    <meta name="description" content="A living archive of 25 hand-crafted portfolio website templates. Preview every style live, then clone the one you need for the next client.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700;800&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="assets/home.css">
+</head>
+<body class="theme-studio-home">
+    <!-- Scroll Progress Bar -->
+    <div class="scroll-progress" id="scrollProgress"></div>
+
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="#top" class="nav-logo">
+                <span class="logo-bracket">&lt;</span>M<span class="logo-dot">.</span>A<span class="logo-bracket">/&gt;</span>
+                <span class="nav-logo-text">archive</span>
+            </a>
+            <div class="nav-search">
+                <i class="fas fa-magnifying-glass"></i>
+                <input type="search" id="searchInput" placeholder="Search themes, moods, fonts…" autocomplete="off" spellcheck="false" aria-label="Search templates">
+                <kbd id="searchHint">/</kbd>
+            </div>
+            <a href="https://github.com/Malek-Abdelrahman-Hassan" target="_blank" rel="noopener" class="nav-github" aria-label="GitHub">
+                <i class="fab fa-github"></i>
+            </a>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <header class="hero" id="top">
+        <div class="container">
+            <span class="hero-tag">// portfolio template archive</span>
+            <h1 class="hero-title">
+                Pick a <span class="grad">style</span>.<br>
+                Ship a portfolio.
+            </h1>
+            <p class="hero-sub">
+                A living archive of <strong id="heroCount">25</strong> hand-crafted portfolio themes —
+                one identical résumé, twenty-five personalities. Preview any style live,
+                then clone the one you need for your next client.
+            </p>
+            <div class="hero-meta">
+                <span class="meta-chip"><i class="fas fa-layer-group"></i> <span id="metaCount">25</span> themes</span>
+                <span class="meta-chip"><i class="fas fa-code"></i> HTML · CSS · JS</span>
+                <span class="meta-chip"><i class="fas fa-mobile-screen"></i> Fully responsive</span>
+                <span class="meta-chip"><i class="fas fa-bolt"></i> Zero build step</span>
+            </div>
+        </div>
+    </header>
+
+    <!-- Gallery -->
+    <main class="container" id="gallery">
+        <div class="toolbar">
+            <div class="filters" id="filters" role="tablist" aria-label="Filter by mood"></div>
+            <div class="result-count" id="resultCount"></div>
+        </div>
+        <div class="grid" id="grid"></div>
+        <div class="empty" id="empty" hidden>
+            <i class="fas fa-ghost"></i>
+            <p>No templates match your search.</p>
+            <button class="btn btn-ghost" id="clearFilters">Clear filters</button>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container footer-content">
+            <div class="footer-logo">
+                <span class="logo-bracket">&lt;</span>M<span class="logo-dot">.</span>A<span class="logo-bracket">/&gt;</span>
+            </div>
+            <p class="footer-copy">Portfolio Template Archive — engineered with precision, built with vision.</p>
+            <a href="#top" class="footer-top">Back to top <i class="fas fa-arrow-up"></i></a>
+        </div>
+    </footer>
+
+    <!-- Copy toast -->
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+    <script src="assets/home.js"></script>
+</body>
+</html>

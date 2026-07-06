@@ -1,0 +1,935 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-8420HL9C87"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-8420HL9C87');
+    </script>
+    <title>Malek Abdelrahman | Engineer & Future Builder — Code Editor</title>
+    <meta name="description" content="Malek Abdelrahman Hassan — Software Development Engineer and aspiring entrepreneur. Building reliable engineering systems and businesses at the intersection of automotive software, embedded systems, and leadership.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body class="theme-ide" data-tilt="off">
+    <!-- Scroll Progress Bar -->
+    <div class="scroll-progress" id="scrollProgress"></div>
+
+    <!-- Aurora Background -->
+    <div class="aurora" aria-hidden="true">
+        <span class="aurora-blob blob-1"></span>
+        <span class="aurora-blob blob-2"></span>
+        <span class="aurora-blob blob-3"></span>
+    </div>
+
+    <!-- Cursor Glow Effect -->
+    <div class="cursor-glow" id="cursorGlow"></div>
+
+    <!-- Particle Canvas -->
+    <canvas id="particleCanvas"></canvas>
+
+    <!-- Mobile Nav Overlay -->
+    <div class="nav-overlay" id="navOverlay"></div>
+
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="#hero" class="nav-logo">
+                <span class="logo-bracket">&lt;</span>M<span class="logo-dot">.</span>A<span class="logo-bracket">/&gt;</span>
+            </a>
+            <div class="nav-links" id="navLinks">
+                <a href="#about" class="nav-link">About</a>
+                <a href="#vision" class="nav-link">Vision</a>
+                <a href="#experience" class="nav-link">Experience</a>
+                <a href="#projects" class="nav-link">Projects</a>
+                <a href="#skills" class="nav-link">Skills</a>
+                <a href="#education" class="nav-link">Education</a>
+                <a href="#contact" class="nav-link">Contact</a>
+            </div>
+            <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="hero">
+        <div class="hero-content">
+            <div class="hero-text">
+                <div class="hero-greeting reveal-up">
+                    <span class="greeting-line"></span>
+                    <span class="greeting-text">Hello, I'm</span>
+                </div>
+                <h1 class="hero-name reveal-up" style="animation-delay: 0.1s">
+                    Malek<br>
+                    <span class="name-highlight">Abdelrahman</span>
+                </h1>
+                <div class="hero-title-wrapper reveal-up" style="animation-delay: 0.2s">
+                    <div class="typing-container">
+                        <span class="typing-text" id="typingText"></span>
+                        <span class="typing-cursor">|</span>
+                    </div>
+                </div>
+                <p class="hero-description reveal-up" style="animation-delay: 0.3s">
+                    Software engineer by craft, builder at heart. I engineer reliable, safety-critical 
+                    systems — and I'm driven to keep learning, applying, and building businesses that 
+                    make a real impact.
+                </p>
+                <div class="hero-cta reveal-up" style="animation-delay: 0.4s">
+                    <a href="#projects" class="btn btn-primary">
+                        <span>View My Work</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </a>
+                    <a href="#contact" class="btn btn-outline">
+                        <span>Get In Touch</span>
+                    </a>
+                </div>
+            </div>
+            <div class="hero-visual reveal-up" style="animation-delay: 0.3s">
+                <div class="profile-frame">
+                    <div class="profile-orb"></div>
+                    <div class="profile-image-wrapper">
+                        <img src="../../images/profile-photo.PNG" alt="Malek Abdelrahman" class="profile-image" onerror="this.onerror=null;this.src='data:image/svg+xml,%3Csvg%20xmlns=%22http://www.w3.org/2000/svg%22%20viewBox=%220%200%20400%20400%22%3E%3Cdefs%3E%3ClinearGradient%20id=%22g%22%20x1=%220%22%20y1=%220%22%20x2=%221%22%20y2=%221%22%3E%3Cstop%20offset=%220%22%20stop-color=%22%232563eb%22/%3E%3Cstop%20offset=%22.5%22%20stop-color=%22%2306b6d4%22/%3E%3Cstop%20offset=%221%22%20stop-color=%22%239b2bd6%22/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect%20width=%22400%22%20height=%22400%22%20fill=%22%230f1420%22/%3E%3Ccircle%20cx=%22200%22%20cy=%22200%22%20r=%22150%22%20fill=%22url(%23g)%22/%3E%3Ctext%20x=%22200%22%20y=%22248%22%20font-family=%22monospace%22%20font-size=%22150%22%20font-weight=%22700%22%20text-anchor=%22middle%22%20fill=%22%23fff%22%3EMA%3C/text%3E%3C/svg%3E'">
+                    </div>
+                    <div class="float-chip chip-istqb">
+                        <i class="fas fa-certificate"></i>
+                        <span>ISTQB CTFL</span>
+                    </div>
+                    <div class="float-chip chip-builder">
+                        <i class="fas fa-rocket"></i>
+                        <span>Builder</span>
+                    </div>
+                    <div class="float-chip chip-code">
+                        <i class="fas fa-code"></i>
+                        <span>Web Dev</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="section about" id="about">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag scroll-reveal">&lt;about&gt;</span>
+                <h2 class="section-title scroll-reveal">Who I Am</h2>
+                <div class="section-line scroll-reveal"></div>
+            </div>
+            <div class="about-content">
+                <div class="about-text scroll-reveal">
+                    <p class="about-lead">
+                        Have you ever wondered what keeps modern vehicles running safely and reliably — even under extreme conditions?
+                    </p>
+                    <p>
+                        I'm a <strong>Software Development Engineer</strong> specializing in automotive software, embedded systems, and system testing. I'm driven by curiosity, precision, and the challenge of turning complex ideas into reliable, safety-critical systems.
+                    </p>
+                    <p>
+                        My journey began at <strong>Ain Shams University</strong>, where I earned my B.Sc. in Computer & Systems Engineering and completed a <strong>Siemens-sponsored thesis</strong> on fault-tolerant AUTOSAR OS for multicore platforms — work that became my first <strong>IEEE publication</strong> at NILES 2024.
+                    </p>
+                    <p>
+                        Today at <strong>Micro Engineering Tech Inc.</strong>, I ensure autonomous systems behave safely, predictably, and reliably across environments. Every test case I design is written with one goal: to make autonomous mobility safer and more dependable.
+                    </p>
+                    <p>
+                        But I'm not just an engineer. Years of <strong>leading teams</strong> — heading committees, managing programs, and raising funds — taught me to think in terms of people, products, and impact. I'm equally passionate about <strong>business and entrepreneurship</strong>, and my goal is to keep growing into someone who builds great companies, not just great code.
+                    </p>
+                    <div class="about-highlights">
+                        <div class="highlight-item">
+                            <div class="highlight-icon"><i class="fas fa-car-side"></i></div>
+                            <span>Autonomous Vehicles</span>
+                        </div>
+                        <div class="highlight-item">
+                            <div class="highlight-icon"><i class="fas fa-microchip"></i></div>
+                            <span>Embedded Systems</span>
+                        </div>
+                        <div class="highlight-item">
+                            <div class="highlight-icon"><i class="fas fa-vial"></i></div>
+                            <span>Software Testing</span>
+                        </div>
+                        <div class="highlight-item">
+                            <div class="highlight-icon"><i class="fas fa-cogs"></i></div>
+                            <span>AUTOSAR</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-card scroll-reveal">
+                    <div class="terminal-window">
+                        <div class="terminal-header">
+                            <div class="terminal-dots">
+                                <span class="dot red"></span>
+                                <span class="dot yellow"></span>
+                                <span class="dot green"></span>
+                            </div>
+                            <span class="terminal-title">malek@portfolio:~</span>
+                        </div>
+                        <div class="terminal-body">
+                            <div class="terminal-line">
+                                <span class="prompt">$</span>
+                                <span class="command">cat about.json</span>
+                            </div>
+                            <div class="terminal-output">
+<pre>{
+  "name": "Malek Abdelrahman Hassan",
+  "role": "Software Development Engineer",
+  "company": "Micro Engineering Tech Inc.",
+  "focus": [
+    "Autonomous Vehicle Testing",
+    "Embedded Systems",
+    "AUTOSAR OS"
+  ],
+  "education": "B.Sc. Computer & Systems Eng.",
+  "university": "Ain Shams University",
+  "certifications": ["ISTQB CTFL"],
+  "publications": 1,
+  "passion": "Making mobility safer"
+}</pre>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Vision Section -->
+    <section class="section vision" id="vision">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag scroll-reveal">&lt;vision&gt;</span>
+                <h2 class="section-title scroll-reveal">Engineering <span class="vision-x">&times;</span> Business</h2>
+                <div class="section-line scroll-reveal"></div>
+            </div>
+            <p class="vision-lead scroll-reveal">
+                I'm building a future at the intersection of <strong class="eng-text">deep engineering</strong> and
+                <strong class="biz-text">entrepreneurship</strong>. I want to design systems that work flawlessly — and
+                build businesses that turn that engineering into real impact. My drive is simple: keep learning, keep
+                applying, and keep building.
+            </p>
+            <div class="vision-pillars">
+                <div class="vision-pillar pillar-eng scroll-reveal">
+                    <div class="pillar-icon"><i class="fas fa-microchip"></i></div>
+                    <h3 class="pillar-title">The Engineer</h3>
+                    <p class="pillar-text">
+                        Solving hard, safety-critical problems with precision — embedded systems, AUTOSAR,
+                        and rigorous testing built to earn trust under pressure.
+                    </p>
+                </div>
+                <div class="vision-pillar pillar-biz scroll-reveal">
+                    <div class="pillar-icon"><i class="fas fa-rocket"></i></div>
+                    <h3 class="pillar-title">The Builder</h3>
+                    <p class="pillar-text">
+                        Leading people and shipping outcomes — thinking in products, value, and impact,
+                        and eager to build businesses of my own.
+                    </p>
+                </div>
+            </div>
+            <div class="growth-strip scroll-reveal">
+                <div class="growth-step">
+                    <div class="growth-num">01</div>
+                    <div class="growth-info">
+                        <h4>Learn</h4>
+                        <p>Stay curious — devour new skills, fields, and ideas relentlessly.</p>
+                    </div>
+                </div>
+                <div class="growth-arrow"><i class="fas fa-arrow-right"></i></div>
+                <div class="growth-step">
+                    <div class="growth-num">02</div>
+                    <div class="growth-info">
+                        <h4>Apply</h4>
+                        <p>Put knowledge to work — turn theory into real, working results.</p>
+                    </div>
+                </div>
+                <div class="growth-arrow"><i class="fas fa-arrow-right"></i></div>
+                <div class="growth-step">
+                    <div class="growth-num">03</div>
+                    <div class="growth-info">
+                        <h4>Build</h4>
+                        <p>Create lasting value — products, businesses, and a great future.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section class="section experience" id="experience">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag scroll-reveal">&lt;experience&gt;</span>
+                <h2 class="section-title scroll-reveal">Where I've Worked</h2>
+                <div class="section-line scroll-reveal"></div>
+            </div>
+            <div class="timeline">
+                <div class="timeline-item scroll-reveal">
+                    <div class="timeline-marker">
+                        <div class="marker-dot"></div>
+                        <div class="marker-pulse"></div>
+                    </div>
+                    <div class="timeline-content">
+                        <div class="timeline-header">
+                            <div>
+                                <h3 class="timeline-title">Autonomous Vehicle SW Tester</h3>
+                                <p class="timeline-company">
+                                    <i class="fas fa-building"></i>
+                                    Micro Engineering Tech Inc. (METI) / Client General Motors
+                                </p>
+                            </div>
+                            <span class="timeline-date">
+                                <i class="far fa-calendar-alt"></i>
+                                Oct 2024 — Present
+                            </span>
+                        </div>
+                        <ul class="timeline-details">
+                            <li>
+                                <span class="detail-tag">Design</span>
+                                Execute system, functional, and regression tests, translating requirements and use cases into clear test plans.
+                            </li>
+                            <li>
+                                <span class="detail-tag">Develop</span>
+                                Scenario-based tests, parameterizing inputs to maximize coverage and reproducibility.
+                            </li>
+                            <li>
+                                <span class="detail-tag">Automate</span>
+                                Test generation using an internal Python-based scenario automation framework.
+                            </li>
+                            <li>
+                                <span class="detail-tag">Lead</span>
+                                End-to-end test lifecycle: intake, prioritization, execution, defect triage, tracking, reporting, and release sign-off.
+                            </li>
+                            <li>
+                                <span class="detail-tag">Delivered</span>
+                                500+ scenario-driven test cases, improving feature quality and faster release cycles.
+                            </li>
+                        </ul>
+                        <div class="timeline-tags">
+                            <span class="tag">Test Design</span>
+                            <span class="tag">Python</span>
+                            <span class="tag">Scenario Testing</span>
+                            <span class="tag">Automation</span>
+                            <span class="tag">Defect Triage</span>
+                            <span class="tag">JIRA</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section class="section projects" id="projects">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag scroll-reveal">&lt;projects&gt;</span>
+                <h2 class="section-title scroll-reveal">Featured Projects</h2>
+                <div class="section-line scroll-reveal"></div>
+            </div>
+            <!-- Featured Graduation Project -->
+            <div class="project-card featured scroll-reveal">
+                <div class="project-glow"></div>
+                <div class="project-header">
+                    <div class="project-icon featured-icon">
+                        <i class="fas fa-award"></i>
+                    </div>
+                    <div class="project-links">
+                        <span class="project-badge">Siemens Sponsored</span>
+                        <span class="project-badge grade">Grade: A</span>
+                    </div>
+                </div>
+                <h3 class="project-title">Fault-Tolerant AUTOSAR OS for Multicore Platforms</h3>
+                <p class="project-label">Graduation Project — IEEE Published</p>
+                <p class="project-description">
+                    A robust real-time multi-core operating system for automotive software, designed to ensure reliability with fault tolerance and resource sharing. Configured task management, event handling, counters, alarms (STM), OS applications, and DMA.
+                </p>
+                <p class="project-description">
+                    Automated configuration generation with a Python tool using Jinja2 templates from ARXML files for linker scripts and memory maps.
+                </p>
+                <div class="project-tech">
+                    <span>TriCore TC387</span>
+                    <span>AUTOSAR OS</span>
+                    <span>Python</span>
+                    <span>Jinja2</span>
+                    <span>Unity-C</span>
+                    <span>TestLink</span>
+                    <span>Jira</span>
+                </div>
+            </div>
+
+            <!-- Projects Grid: 3 x 2 -->
+            <h3 class="subsection-title">
+                <i class="fas fa-code"></i>
+                Selected Projects
+            </h3>
+            <div class="projects-grid">
+                <!-- Voice-Over client work (combined) -->
+                <div class="project-card scroll-reveal">
+                    <div class="project-glow"></div>
+                    <div class="project-header">
+                        <div class="project-icon"><i class="fas fa-microphone-lines"></i></div>
+                        <span class="project-badge">Freelance</span>
+                    </div>
+                    <h3 class="project-title">Voice-Over Artist Portfolios</h3>
+                    <p class="project-label">Client Web Work</p>
+                    <p class="project-description">
+                        Designed &amp; developed bilingual (EN/AR) portfolio sites for professional voice-over artists — demo players, services, testimonials, and quote-request flows.
+                    </p>
+                    <div class="vo-links">
+                        <a href="https://salmahassanvoice.com/" target="_blank" rel="noopener" class="project-live-link">
+                            <i class="fas fa-arrow-up-right-from-square"></i> Salma Hassan
+                        </a>
+                        <a href="https://nohayounis.github.io/" target="_blank" rel="noopener" class="project-live-link">
+                            <i class="fas fa-arrow-up-right-from-square"></i> Noha Younis
+                        </a>
+                    </div>
+                    <div class="project-tech">
+                        <span>HTML</span>
+                        <span>CSS</span>
+                        <span>JavaScript</span>
+                        <span>Responsive</span>
+                        <span>UI/UX</span>
+                    </div>
+                </div>
+
+                <div class="project-card scroll-reveal">
+                    <div class="project-glow"></div>
+                    <div class="project-header">
+                        <div class="project-icon">
+                            <i class="fas fa-shield-halved"></i>
+                        </div>
+                    </div>
+                    <h3 class="project-title">Encryption / Decryption Tool</h3>
+                    <p class="project-description">
+                        Desktop application for encryption/decryption with shared key and sign/verify with private/public certificates. Features an interactive GUI for seamless cryptographic operations.
+                    </p>
+                    <div class="project-tech">
+                        <span>Python</span>
+                        <span>Cryptography</span>
+                        <span>GUI</span>
+                    </div>
+                </div>
+
+                <div class="project-card scroll-reveal">
+                    <div class="project-glow"></div>
+                    <div class="project-header">
+                        <div class="project-icon">
+                            <i class="fas fa-clock-rotate-left"></i>
+                        </div>
+                    </div>
+                    <h3 class="project-title">CPU Scheduler Simulator</h3>
+                    <p class="project-description">
+                        Desktop application simulating CPU scheduling algorithms (FCFS, SJF, Round-Robin, Priority) with a live CPU-like simulator and real-time Gantt chart visualization.
+                    </p>
+                    <div class="project-tech">
+                        <span>Java</span>
+                        <span>JavaFX</span>
+                        <span>Algorithms</span>
+                    </div>
+                </div>
+
+                <div class="project-card scroll-reveal">
+                    <div class="project-glow"></div>
+                    <div class="project-header">
+                        <div class="project-icon">
+                            <i class="fas fa-memory"></i>
+                        </div>
+                    </div>
+                    <h3 class="project-title">AUTOSAR MCAL & ECUAL Drivers</h3>
+                    <p class="project-description">
+                        Built MCAL layer (DIO, Port, GPT drivers), ECUAL layer (LED, Button drivers), and Service layer (Scheduler) for TM4C microcontrollers following AUTOSAR architecture.
+                    </p>
+                    <div class="project-tech">
+                        <span>C</span>
+                        <span>AUTOSAR</span>
+                        <span>TM4C</span>
+                        <span>Embedded</span>
+                    </div>
+                </div>
+
+                <div class="project-card scroll-reveal">
+                    <div class="project-glow"></div>
+                    <div class="project-header">
+                        <div class="project-icon">
+                            <i class="fas fa-network-wired"></i>
+                        </div>
+                    </div>
+                    <h3 class="project-title">APB Bus with UART & GPIO</h3>
+                    <p class="project-description">
+                        Synthesizable APB bus connected to UART controller for serial-to-parallel data conversion. Implemented GPIO controller for pin configuration as input/output.
+                    </p>
+                    <div class="project-tech">
+                        <span>SystemVerilog</span>
+                        <span>UART</span>
+                        <span>GPIO</span>
+                        <span>RTL Design</span>
+                    </div>
+                </div>
+
+                <div class="project-card scroll-reveal">
+                    <div class="project-glow"></div>
+                    <div class="project-header">
+                        <div class="project-icon">
+                            <i class="fas fa-lock"></i>
+                        </div>
+                    </div>
+                    <h3 class="project-title">Door Locker Security System</h3>
+                    <p class="project-description">
+                        Password-based door unlocking system using ATmega MCU with GPIO, Keypad, LCD, Timer, UART, I2C, EEPROM, Buzzer, and DC Motor drivers.
+                    </p>
+                    <div class="project-tech">
+                        <span>C</span>
+                        <span>ATmega</span>
+                        <span>Embedded</span>
+                        <span>I2C</span>
+                        <span>UART</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section class="section skills" id="skills">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag scroll-reveal">&lt;skills&gt;</span>
+                <h2 class="section-title scroll-reveal">Technical Arsenal</h2>
+                <div class="section-line scroll-reveal"></div>
+            </div>
+            <div class="skills-grid">
+                <div class="skill-category scroll-reveal">
+                    <div class="skill-category-header">
+                        <div class="skill-category-icon"><i class="fas fa-code"></i></div>
+                        <h3>Programming</h3>
+                    </div>
+                    <div class="skill-items">
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <span class="skill-name">C Programming</span>
+                                <span class="skill-level">Advanced</span>
+                            </div>
+                            <div class="skill-bar"><div class="skill-fill" data-width="92"></div></div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <span class="skill-name">C for Embedded</span>
+                                <span class="skill-level">Advanced</span>
+                            </div>
+                            <div class="skill-bar"><div class="skill-fill" data-width="90"></div></div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <span class="skill-name">C++ (11/14/17)</span>
+                                <span class="skill-level">Advanced</span>
+                            </div>
+                            <div class="skill-bar"><div class="skill-fill" data-width="85"></div></div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <span class="skill-name">Python</span>
+                                <span class="skill-level">Intermediate</span>
+                            </div>
+                            <div class="skill-bar"><div class="skill-fill" data-width="72"></div></div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <span class="skill-name">Java</span>
+                                <span class="skill-level">Intermediate</span>
+                            </div>
+                            <div class="skill-bar"><div class="skill-fill" data-width="65"></div></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="skill-category scroll-reveal">
+                    <div class="skill-category-header">
+                        <div class="skill-category-icon"><i class="fas fa-microchip"></i></div>
+                        <h3>Embedded & Automotive</h3>
+                    </div>
+                    <div class="skill-items">
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <span class="skill-name">RTOS / AUTOSAR OS</span>
+                                <span class="skill-level">Advanced</span>
+                            </div>
+                            <div class="skill-bar"><div class="skill-fill" data-width="90"></div></div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <span class="skill-name">AUTOSAR Architecture</span>
+                                <span class="skill-level">Advanced</span>
+                            </div>
+                            <div class="skill-bar"><div class="skill-fill" data-width="88"></div></div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <span class="skill-name">ARM / Microcontrollers</span>
+                                <span class="skill-level">Advanced</span>
+                            </div>
+                            <div class="skill-bar"><div class="skill-fill" data-width="85"></div></div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <span class="skill-name">SystemVerilog / RTL</span>
+                                <span class="skill-level">Intermediate</span>
+                            </div>
+                            <div class="skill-bar"><div class="skill-fill" data-width="68"></div></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="skill-category scroll-reveal">
+                    <div class="skill-category-header">
+                        <div class="skill-category-icon"><i class="fas fa-vial"></i></div>
+                        <h3>Testing & QA</h3>
+                    </div>
+                    <div class="skill-items">
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <span class="skill-name">Test Design & Execution</span>
+                                <span class="skill-level">Advanced</span>
+                            </div>
+                            <div class="skill-bar"><div class="skill-fill" data-width="93"></div></div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <span class="skill-name">Scenario / Regression Testing</span>
+                                <span class="skill-level">Advanced</span>
+                            </div>
+                            <div class="skill-bar"><div class="skill-fill" data-width="90"></div></div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <span class="skill-name">Test Automation (Python)</span>
+                                <span class="skill-level">Advanced</span>
+                            </div>
+                            <div class="skill-bar"><div class="skill-fill" data-width="85"></div></div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <span class="skill-name">ISTQB Methodologies</span>
+                                <span class="skill-level">Certified</span>
+                            </div>
+                            <div class="skill-bar"><div class="skill-fill" data-width="88"></div></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="skill-category scroll-reveal">
+                    <div class="skill-category-header">
+                        <div class="skill-category-icon"><i class="fas fa-wrench"></i></div>
+                        <h3>Tools & Practices</h3>
+                    </div>
+                    <div class="skill-items">
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <span class="skill-name">Git & GitHub</span>
+                                <span class="skill-level">Advanced</span>
+                            </div>
+                            <div class="skill-bar"><div class="skill-fill" data-width="90"></div></div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <span class="skill-name">Data Structures</span>
+                                <span class="skill-level">Advanced</span>
+                            </div>
+                            <div class="skill-bar"><div class="skill-fill" data-width="88"></div></div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <span class="skill-name">Jira / TestLink</span>
+                                <span class="skill-level">Proficient</span>
+                            </div>
+                            <div class="skill-bar"><div class="skill-fill" data-width="85"></div></div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <span class="skill-name">Problem Solving</span>
+                                <span class="skill-level">Intermediate</span>
+                            </div>
+                            <div class="skill-bar"><div class="skill-fill" data-width="75"></div></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Education Section -->
+    <section class="section education" id="education">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag scroll-reveal">&lt;education&gt;</span>
+                <h2 class="section-title scroll-reveal">Education & Credentials</h2>
+                <div class="section-line scroll-reveal"></div>
+            </div>
+            <div class="edu-grid">
+                <!-- Degree -->
+                <div class="edu-card scroll-reveal">
+                    <div class="edu-icon"><i class="fas fa-graduation-cap"></i></div>
+                    <div class="edu-info">
+                        <h3>B.Sc. Computer & Systems Engineering</h3>
+                        <p class="edu-institution">Ain Shams University, Cairo</p>
+                        <p class="edu-date">2019 — 2024</p>
+                        <p class="edu-detail">Cumulative GPA: 3.0</p>
+                    </div>
+                </div>
+
+                <!-- Publication -->
+                <div class="edu-card scroll-reveal">
+                    <div class="edu-icon"><i class="fas fa-file-lines"></i></div>
+                    <div class="edu-info">
+                        <h3>IEEE Publication — NILES 2024</h3>
+                        <p class="edu-institution">"MCS-FT: A Fault-Tolerant AUTOSAR OS For Multicore Platforms"</p>
+                        <p class="edu-date">6th Novel Intelligent and Leading Emerging Sciences Conference</p>
+                    </div>
+                </div>
+
+                <!-- ISTQB -->
+                <div class="edu-card cert scroll-reveal">
+                    <div class="edu-icon"><i class="fas fa-certificate"></i></div>
+                    <div class="edu-info">
+                        <h3>ISTQB Certified Tester — Foundation Level</h3>
+                        <p class="edu-institution">International Software Testing Qualifications Board</p>
+                        <p class="edu-date">May 2025</p>
+                    </div>
+                </div>
+
+                <!-- Siemens -->
+                <div class="edu-card cert scroll-reveal">
+                    <div class="edu-icon"><i class="fas fa-industry"></i></div>
+                    <div class="edu-info">
+                        <h3>Siemens Summer Academy</h3>
+                        <p class="edu-institution">Developing Embedded Software with Adaptive AUTOSAR Guide</p>
+                        <p class="edu-date">July — Oct 2023</p>
+                        <p class="edu-detail">MCU fundamentals, debugging tools, adaptive AUTOSAR, safety, security, DevOps, RTOS fundamentals.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Courses -->
+            <div class="courses-section scroll-reveal">
+                <h3 class="courses-title"><i class="fas fa-book-open"></i> Continuous Learning</h3>
+                <div class="courses-grid">
+                    <div class="course-chip">
+                        <span class="course-year">2025</span>
+                        Complete Modern C++ (C++11/14/17)
+                    </div>
+                    <div class="course-chip">
+                        <span class="course-year">2025</span>
+                        ISTQB Foundation Level V4.0 Training
+                    </div>
+                    <div class="course-chip">
+                        <span class="course-year">2024</span>
+                        Web Development Foundation
+                    </div>
+                    <div class="course-chip">
+                        <span class="course-year">2023</span>
+                        Introduction to AUTOSAR/OSEK RTOS
+                    </div>
+                    <div class="course-chip">
+                        <span class="course-year">2023</span>
+                        Automotive & AUTOSAR Device Drivers (ARM)
+                    </div>
+                    <div class="course-chip">
+                        <span class="course-year">2022</span>
+                        Full Embedded Systems Diploma
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Activities Section -->
+    <section class="section activities" id="activities">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag scroll-reveal">&lt;leadership&gt;</span>
+                <h2 class="section-title scroll-reveal">Beyond Code</h2>
+                <div class="section-line scroll-reveal"></div>
+            </div>
+            <div class="activities-list">
+                <div class="activity-card-full scroll-reveal">
+                    <div class="activity-card-left">
+                        <div class="activity-icon"><i class="fas fa-users"></i></div>
+                    </div>
+                    <div class="activity-card-body">
+                        <div class="activity-card-top">
+                            <div>
+                                <h3>Head of Families & Student Activities Committee</h3>
+                                <p class="activity-org">Student Union</p>
+                            </div>
+                            <span class="activity-date">2020 — 2023</span>
+                        </div>
+                        <ul class="activity-details">
+                            <li>Responsible for 20 student activities on campus.</li>
+                            <li>Established a competition between all the student activities simulating YLF competition (<strong>LEADERS LEAGUE</strong>) to improve them in Project Management (PM), Public Relations & Fund Raising (PR & FR), Human Resources (HR), and Media.</li>
+                            <li>Helped to solve students' problems in college.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="activity-card-full scroll-reveal">
+                    <div class="activity-card-left">
+                        <div class="activity-icon"><i class="fab fa-google"></i></div>
+                    </div>
+                    <div class="activity-card-body">
+                        <div class="activity-card-top">
+                            <div>
+                                <h3>PM Member</h3>
+                                <p class="activity-org">Google Developer Student Clubs</p>
+                            </div>
+                            <span class="activity-date">2022 — 2023</span>
+                        </div>
+                        <ul class="activity-details">
+                            <li>Leveraged project management strategies aligned with the content of the Project Management diploma on Coursera.</li>
+                            <li>Oversaw GDSC courses, ensuring the delivery of high-quality content.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="activity-card-full scroll-reveal">
+                    <div class="activity-card-left">
+                        <div class="activity-icon"><i class="fas fa-bullhorn"></i></div>
+                    </div>
+                    <div class="activity-card-body">
+                        <div class="activity-card-top">
+                            <div>
+                                <h3>Head of PR Committee</h3>
+                                <p class="activity-org">IClub</p>
+                            </div>
+                            <span class="activity-date">2020 — 2021</span>
+                        </div>
+                        <ul class="activity-details">
+                            <li>Led a team of 70 members across 10 student clubs all over Egypt.</li>
+                            <li>Managed trainings to improve members' skills in communication and outreach.</li>
+                            <li>Executed collaborative projects with IClub and enrolled in events.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="activity-card-full scroll-reveal">
+                    <div class="activity-card-left">
+                        <div class="activity-icon"><i class="fas fa-hand-holding-heart"></i></div>
+                    </div>
+                    <div class="activity-card-body">
+                        <div class="activity-card-top">
+                            <div>
+                                <h3>Logistics Assistant</h3>
+                                <p class="activity-org">Life Makers Foundation</p>
+                            </div>
+                            <span class="activity-date">Jul 2015 — Sep 2017</span>
+                        </div>
+                        <ul class="activity-details">
+                            <li>Raised funds to establish small projects for families to leverage their lives.</li>
+                            <li>Joined blood donation campaigns.</li>
+                            <li>Organized clothes fairs for social services.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="section contact" id="contact">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag scroll-reveal">&lt;contact&gt;</span>
+                <h2 class="section-title scroll-reveal">Let's Connect</h2>
+                <div class="section-line scroll-reveal"></div>
+            </div>
+            <div class="contact-content">
+                <div class="contact-text scroll-reveal">
+                    <p class="contact-lead">
+                        Looking ahead, my goal is to advance as a technical leader in automotive and autonomous systems, helping shape software that defines the future of safe mobility.
+                    </p>
+                    <p>
+                        If you share that passion or are looking for someone who brings technical depth, attention to detail, and real-world reliability — let's talk.
+                    </p>
+                    <div class="contact-links">
+                        <a href="mailto:malek345abdelrhman@gmail.com" class="contact-link-item">
+                            <div class="contact-link-icon"><i class="fas fa-envelope"></i></div>
+                            <div>
+                                <span class="contact-link-label">Email</span>
+                                <span class="contact-link-value">malek345abdelrhman@gmail.com</span>
+                            </div>
+                        </a>
+                        <a href="https://wa.me/201006399425" target="_blank" rel="noopener" class="contact-link-item">
+                            <div class="contact-link-icon"><i class="fab fa-whatsapp"></i></div>
+                            <div>
+                                <span class="contact-link-label">WhatsApp</span>
+                                <span class="contact-link-value">(+20) 100 639 9425</span>
+                            </div>
+                        </a>
+                        <a href="https://linkedin.com/in/malek-abdelrahman" target="_blank" rel="noopener" class="contact-link-item">
+                            <div class="contact-link-icon"><i class="fab fa-linkedin-in"></i></div>
+                            <div>
+                                <span class="contact-link-label">LinkedIn</span>
+                                <span class="contact-link-value">in/malek-abdelrahman</span>
+                            </div>
+                        </a>
+                        <a href="https://github.com/Malek-Abdelrahman-Hassan" target="_blank" rel="noopener" class="contact-link-item">
+                            <div class="contact-link-icon"><i class="fab fa-github"></i></div>
+                            <div>
+                                <span class="contact-link-label">GitHub</span>
+                                <span class="contact-link-value">Malek-Abdelrahman-Hassan</span>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="contact-form-wrapper scroll-reveal">
+                    <form class="contact-form" id="contactForm" action="https://formsubmit.co/fecb7245efb979252ffe1459b4feace6" method="POST">
+                        <input type="hidden" name="_captcha" value="false">
+                        <input type="hidden" name="_template" value="table">
+                        <input type="hidden" name="_next" value="https://malek-abdelrahman-hassan.github.io/#contact">
+                        <div class="form-group">
+                            <input type="text" id="name" name="name" required placeholder=" ">
+                            <label for="name">Your Name</label>
+                            <div class="form-line"></div>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" id="email" name="email" required placeholder=" ">
+                            <label for="email">Your Email</label>
+                            <div class="form-line"></div>
+                        </div>
+                        <div class="form-group">
+                            <textarea id="message" name="message" rows="4" required placeholder=" "></textarea>
+                            <label for="message">Your Message</label>
+                            <div class="form-line"></div>
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-submit">
+                            <span>Send Message</span>
+                            <i class="fas fa-paper-plane"></i>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <span class="logo-bracket">&lt;</span>M<span class="logo-dot">.</span>A<span class="logo-bracket">/&gt;</span>
+                </div>
+                <div class="footer-socials">
+                    <a href="mailto:malek345abdelrhman@gmail.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
+                    <a href="https://linkedin.com/in/malek-abdelrahman" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="https://github.com/Malek-Abdelrahman-Hassan" target="_blank" rel="noopener" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                </div>
+                <p class="footer-copy">&copy; 2026 Malek Abdelrahman. Engineered with precision, built with vision.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/scripts.js"></script>
+</body>
+</html>
